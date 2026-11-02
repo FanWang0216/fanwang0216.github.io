@@ -19,6 +19,8 @@ Open a file below, click the pencil, edit, and choose **Commit changes**. After 
 
 Preserve JSON double quotes and commas. Copy an existing entry to add a course or publication. Entries appear in file order. Publications have `"type": "published"` or `"type": "preprint"`. Invalid JSON stops the build.
 
+The highlighted `student_statement` in `content/home.json` is optional. Remove that field or set it to an empty string to hide the paragraph; the `student_followup` paragraph will still appear.
+
 The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
 
 ## Visibility and search preferences
