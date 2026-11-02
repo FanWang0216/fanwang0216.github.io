@@ -65,8 +65,10 @@ software='<ul class="software-list">'+''.join('<li>'+link(x['url'],x['name'])+' 
 research_html=f'''<h1>{e(research['title'])}</h1>{paragraphs(research['paragraphs'])}<h2>{e(research['published_heading'])}</h2><p class="publication-note">{e(research['publication_note'])}</p>{publication_list('published')}<h2>{e(research['preprints_heading'])}</h2>{publication_list('preprint')}<h2>{e(research['software_heading'])}</h2>{software}'''
 page(research['title'],research_html,'research/index.html')
 (OUT/'.nojekyll').write_text('')
-# Crawlers must be able to read the HTML noindex directive. Block only images.
-(OUT/'robots.txt').write_text('User-agent: *\nDisallow: /assets/images/\n')
-(OUT/'sitemap.xml').unlink(missing_ok=True)
-(OUT/'_headers').write_text('/*\n  X-Robots-Tag: noindex, nofollow, noimageindex\n')
+# The public website permits crawling and indexing; the source repository stays private.
+site_url = p['site_url'].rstrip('/')
+(OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {site_url}/sitemap.xml\n', encoding='utf-8')
+sitemap_urls = [site_url+'/', site_url+'/research/']
+(OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{url(href)}</loc></url>\n' for href in sitemap_urls)+'</urlset>\n', encoding='utf-8')
+(OUT/'_headers').write_text('/*\n  X-Robots-Tag: index, follow\n')
 print(f'Built homepage and research page: {len(courses)} courses, {len(pubs)} papers.')

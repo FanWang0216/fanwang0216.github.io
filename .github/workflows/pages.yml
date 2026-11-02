@@ -12,10 +12,22 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build website
         run: python3 build.py
-      - name: Verify search exclusion
+      - name: Verify public search settings
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          for page in Path('_site').rglob('*.html'):
-              assert 'name="robots" content="noindex, nofollow, noimageindex"' in page.read_text(), page
+          import json
+          import xml.etree.ElementTree as ET
+          pages = list(Path('_site').rglob('*.html'))
+          assert len(pages) == 2
+          for page in pages:
+              assert 'name="robots" content="index, follow"' in page.read_text(), page
+              assert 'noindex' not in page.read_text(), page
+          assert 'X-Robots-Tag: index, follow' in Path('_site/_headers').read_text()
+          base = json.loads(Path('content/profile.json').read_text())['site_url'].rstrip('/')
+          assert f'Sitemap: {base}/sitemap.xml' in Path('_site/robots.txt').read_text()
+          assert 'Disallow:' not in Path('_site/robots.txt').read_text()
+          sitemap = ET.parse('_site/sitemap.xml')
+          locations = [node.text for node in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+          assert locations == [base+'/', base+'/research/']
           PY

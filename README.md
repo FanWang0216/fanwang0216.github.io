@@ -28,13 +28,13 @@ The public website has no repository or editing link. Bookmark this private repo
 ## Visibility and search preferences
 
 - Repository: private; its files are not visible to people browsing your public GitHub profile.
-- Website: accessible to anyone who has its link once published.
-- Every HTML page includes `noindex, nofollow, noimageindex`.
-- Crawling HTML is allowed so search engines can read `noindex`. Images are blocked in `robots.txt`.
-- No sitemap is generated. `_headers` provides an additional `X-Robots-Tag` for hosts that support it, including Cloudflare Pages.
-- These settings request exclusion from search engines; they are not a password or a guarantee that a public link cannot be shared or discovered.
+- Website: publicly accessible at https://fan-wang-statistics.pages.dev/.
+- Search indexing is enabled at the owner's request. Every HTML page and the `X-Robots-Tag` response header allow `index, follow`.
+- `robots.txt` allows crawling, including images, and advertises the website's sitemap.
+- `sitemap.xml` lists the homepage and Research page using their official website addresses.
+- These settings make the website eligible for search indexing. Search engines decide whether and when to crawl, index, and display it; appearing in search results is not immediate or guaranteed.
 
-Google reference: https://developers.google.com/search/docs/crawling-indexing/block-indexing
+Google reference: https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
 
 ## Hosting
 
@@ -52,7 +52,7 @@ Website: https://fan-wang-statistics.pages.dev/
 
 Research: https://fan-wang-statistics.pages.dev/research/
 
-Cloudflare republishes commits automatically. If you later change the domain, update `site_url` in `content/profile.json`. The GitHub Actions workflow also checks that the site builds and that every HTML page has the search-exclusion directive; it does not deploy to GitHub Pages.
+Cloudflare republishes commits automatically. If you later change the domain, update `site_url` in `content/profile.json`. The GitHub Actions workflow also checks that the site builds and that the public search settings and sitemap are valid; it does not deploy to GitHub Pages.
 
 ## Local preview
 
