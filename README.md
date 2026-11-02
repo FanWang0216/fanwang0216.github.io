@@ -44,7 +44,11 @@ Cloudflare settings:
 - Build command: `python3 build.py`
 - Output directory: `_site`
 
-After the first deployment, set `site_url` in `content/profile.json` to the actual Cloudflare URL. Cloudflare republishes commits automatically. The GitHub Actions workflow also checks that the site builds and that every HTML page has the search-exclusion directive; it does not deploy to GitHub Pages.
+Website: https://fan-wang-statistics.pages.dev/
+
+Research: https://fan-wang-statistics.pages.dev/research/
+
+Cloudflare republishes commits automatically. If you later change the domain, update `site_url` in `content/profile.json`. The GitHub Actions workflow also checks that the site builds and that every HTML page has the search-exclusion directive; it does not deploy to GitHub Pages.
 
 ## Local preview
 
