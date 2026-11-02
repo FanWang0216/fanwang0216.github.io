@@ -1,12 +1,11 @@
 {
   "title": "Welcome!",
   "paragraphs": [
-    "I am Fan Wang, a Senior Biostatistician at Tigermed, supporting Vertex Pharmaceuticals in real-world evidence studies and clinical trials. I received my PhD in Statistical Sciences from the University of Toronto. Previously, I was a Postdoctoral Research Scientist in Biostatistics at Columbia University. My research focuses on statistical genetics, clinical trails,high-dimensional inference, and large-scale biomedical studies."
+    "I am Fan Wang, a biostatistician currently supporting clinical research at Vertex Pharmaceuticals, with a focus on real-world evidence studies and clinical trials. Previously, I received my PhD in Statistical Sciences from the University of Toronto. Then I became a Postdoctoral Research Scientist in Biostatistics at Columbia University for three years. My research focuses on statistical genetics, clinical trials, high-dimensional inference, and large-scale biomedical studies."
   ],
-  "student_statement": "I am passionate about helping students build confidence in statistics, develop their research ideas, and guide them on career developement.",
-  "student_followup": "I enjoy making challenging concepts accessible through clear explanations, real data, and hands-on examples. Students are welcome to connect with me about coursework, research, and learning in statistics and data science.",
+  "student_followup": "I have experience in both academia and industry, as well as navigating the transition between the two. I enjoy sharing my experiences and helping students navigate their academic and career decisions. Feel free to reach out about coursework, research, career paths, or simply figuring out your next steps. I'm always happy to connect and exchange ideas!",
   "teaching_heading": "Teaching",
-  "teaching_intro": "My teaching combines statistical foundations with practical computing and applications in data science, biostatistics and genomics.",
+  "teaching_intro": "My teaching integrates statistical foundations with practical computing and real-world applications in data science, biostatistics, and genomics.",
   "teaching_other_heading": "Additional teaching and mentorship",
   "teaching_other": [
     "Teaching Assistant, University of Toronto (2016–2019): Statistical Theory (STA255), Methods of Data Analysis I (STA302), Methods of Applied Statistics I (STA2101), Statistical Genetics (STA480), and Methods for Multivariate Data (STA437).",
@@ -14,5 +13,5 @@
     "Research mentorship in high-dimensional signal detection, colocalization, and clinical risk prediction."
   ],
   "contact_heading": "Contact",
-  "contact_intro": "Please feel free to get in touch. When connecting on WeChat, include your name and course or research interest."
+  "contact_intro": "Please feel free to get in touch."
 }
