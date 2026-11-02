@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Context-dependent genetic regulation of gene expression in pigs",
+    "authors": "Wang F, Wang C, Teng J, Fang L, Ionita-Laza I.",
+    "journal": "Genetics",
+    "year": "2026",
+    "details": "",
+    "url": "https://doi.org/10.1093/genetics/iyag234",
+    "type": "published"
+  },
+  {
+    "title": "Computationally efficient whole-genome quantile regression at biobank scale",
+    "authors": "Wang F, Wang C, Wang T, Masala M, Fiorillo E, Devoto M, Cucca F, Ionita-Laza I.",
+    "journal": "Proceedings of the National Academy of Sciences",
+    "year": "2025",
+    "details": "122(50), e2513007122",
+    "url": "https://doi.org/10.1073/pnas.2513007122",
+    "type": "published"
+  },
+  {
+    "title": "Computationally Efficient Whole-Genome Signal Region Detection for Quantitative and Binary Traits",
+    "authors": "Wang F*, Zhang W*, Yao F.",
+    "journal": "Annals of Applied Statistics",
+    "year": "2025",
+    "details": "",
+    "url": "https://doi.org/10.1214/25-AOAS2029",
+    "type": "published"
+  },
+  {
+    "title": "Fast Signal Region Detection with Application to Whole Genome Association Studies",
+    "authors": "Zhang W*, Wang F*, Yao F.",
+    "journal": "Journal of the American Statistical Association",
+    "year": "2025",
+    "details": "",
+    "url": "https://doi.org/10.1080/01621459.2025.2464271",
+    "type": "published"
+  },
+  {
+    "title": "Local genetic correlation via knockoffs reduces confounding due to cross-trait assortative mating",
+    "authors": "Ma S, Wang F, Border R, Buxbaum J, Zaitlen N, Ionita-Laza I.",
+    "journal": "The American Journal of Human Genetics",
+    "year": "2024",
+    "details": "111(12), 2839–2848",
+    "url": "https://doi.org/10.1016/j.ajhg.2024.10.012",
+    "type": "published"
+  },
+  {
+    "title": "Mouse and human studies support DSTYK loss of function as a low-penetrance and variable expressivity risk factor for congenital urinary tract anomalies",
+    "authors": "Martino J, et al. (including Wang F).",
+    "journal": "Genetics in Medicine",
+    "year": "2023",
+    "details": "",
+    "url": "https://doi.org/10.1016/j.gim.2023.100983",
+    "type": "published"
+  },
+  {
+    "title": "A flexible summary statistics-based colocalization method with application to the mucin cystic fibrosis lung disease modifier locus",
+    "authors": "Wang F, Panjwani N, Wang C, Sun L, Strug LJ.",
+    "journal": "The American Journal of Human Genetics",
+    "year": "2022",
+    "details": "109(2), 253–269",
+    "url": "https://doi.org/10.1016/j.ajhg.2021.12.012",
+    "type": "published"
+  },
+  {
+    "title": "LocusFocus: Web-based colocalization for the annotation and functional follow-up of GWAS",
+    "authors": "Panjwani N, Wang F, et al.",
+    "journal": "PLOS Computational Biology",
+    "year": "2020",
+    "details": "16(10), e1008336",
+    "url": "https://doi.org/10.1371/journal.pcbi.1008336",
+    "type": "published"
+  },
+  {
+    "title": "Genetic association and transcriptome integration identify contributing genes and tissues at cystic fibrosis modifier loci",
+    "authors": "Gong J*, Wang F*, Xiao B*, et al.",
+    "journal": "PLOS Genetics",
+    "year": "2019",
+    "details": "15(2), e1008007",
+    "url": "https://doi.org/10.1371/journal.pgen.1008007",
+    "type": "published"
+  },
+  {
+    "title": "Regularized partially functional quantile regression",
+    "authors": "Yao F, Sue-Chee S, Wang F.",
+    "journal": "Journal of Multivariate Analysis",
+    "year": "2017",
+    "details": "156, 39–56",
+    "url": "https://doi.org/10.1016/j.jmva.2017.01.012",
+    "type": "published"
+  },
+  {
+    "title": "Individualized Uncertainty Quantification in Polygenic Risk Scores Using Conformalized Quantile Regression",
+    "authors": "Wang C, Wang F, Bogdan M, Masala M, Fiorillo E, Devoto M, Cucca F, Belsky D, Ionita-Laza I.",
+    "journal": "bioRxiv",
+    "year": "2025",
+    "details": "Preprint",
+    "url": "https://doi.org/10.1101/2025.10.13.682102",
+    "type": "preprint"
+  }
+]

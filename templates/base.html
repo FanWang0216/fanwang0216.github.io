@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title</title>
+  <meta name="description" content="$description">
+  <meta name="robots" content="noindex, nofollow, noimageindex">
+  <link rel="canonical" href="$canonical">
+  <link rel="icon" type="image/svg+xml" href="${root}assets/favicon.svg">
+  <link rel="stylesheet" href="${root}assets/style.css">
+  <script src="${root}assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <nav aria-label="Main navigation">
+      <a class="site-name" href="$root">$name</a>
+      <a $about_current href="$root">About</a>
+      <a $research_current href="${root}research/">Research</a>
+      <a href="${root}#teaching">Teaching</a>
+      <a href="${root}#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="page-layout">
+    <aside class="profile" aria-label="About $name">
+      <img class="profile-photo" src="$photo" alt="$photo_alt" width="220" height="220">
+      <h2>$name</h2>
+      <p class="degree">$degree</p>
+      <p class="role">$role</p>
+      <p class="affiliation">$affiliation</p>
+      <p class="location">$location</p>
+      <ul class="profile-links">
+        <li><a href="mailto:$email">$mail_icon<span>$email</span></a></li>
+        <li><span>$wechat_icon<span>WeChat: <span class="wechat-id">$wechat</span></span></span></li>
+        <li><a href="$linkedin" target="_blank" rel="noopener noreferrer">$linkedin_icon<span>LinkedIn</span></a></li>
+      </ul>
+    </aside>
+    <main id="main" class="page-content">$body</main>
+  </div>
+  <footer class="site-footer"><div>© $year $footer</div></footer>
+</body>
+</html>

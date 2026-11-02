@@ -1,0 +1,44 @@
+name: Build personal website
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build website
+        run: python3 build.py
+      - name: Verify search exclusion
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for page in Path('_site').rglob('*.html'):
+              assert 'name="robots" content="noindex, nofollow, noimageindex"' in page.read_text(), page
+          PY
+  deploy:
+    if: vars.GITHUB_PAGES_ENABLED == 'true'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build website
+        run: python3 build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment

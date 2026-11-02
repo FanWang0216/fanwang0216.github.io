@@ -1,0 +1,33 @@
+{
+  "title": "Research",
+  "paragraphs": [
+    "My research develops statistical methods for complex biomedical and genomic data, with a focus on quantile regression, high-dimensional signal detection, colocalization, and uncertainty quantification.",
+    "I am particularly interested in understanding genetic effects that vary across the distribution of a trait and connecting genetic associations with biological mechanisms."
+  ],
+  "published_heading": "Publications",
+  "publication_note": "* denotes equal contribution.",
+  "preprints_heading": "Preprints",
+  "software_heading": "Software",
+  "software": [
+    {
+      "name": "Regenie.QRS",
+      "description": "Quantile regression at biobank scale",
+      "url": "https://github.com/FanWang0216/Regenie.QRS"
+    },
+    {
+      "name": "SimpleSum2",
+      "description": "Summary-statistics colocalization",
+      "url": "https://github.com/FanWang0216/SimpleSum2Colocalization"
+    },
+    {
+      "name": "BiRS / dBiRS",
+      "description": "High-dimensional signal-region detection",
+      "url": "https://github.com/ZWCR7/dBiRS"
+    },
+    {
+      "name": "LocusFocus",
+      "description": "GWAS follow-up and colocalization · contributor",
+      "url": "https://locusfocus.readthedocs.io/en/latest/"
+    }
+  ]
+}

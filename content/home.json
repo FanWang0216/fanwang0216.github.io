@@ -1,0 +1,19 @@
+{
+  "title": "Welcome!",
+  "paragraphs": [
+    "I am Fan Wang, a statistician and educator based in Toronto. I am a Senior Biostatistician at Tigermed, supporting Vertex Pharmaceuticals with a focus on real-world evidence studies and clinical trials. I also teach and develop courses at the University of Toronto’s Data Sciences Institute.",
+    "I received my PhD in Statistical Sciences from the University of Toronto, supervised by Lisa Strug and Lei Sun. Previously, I was a Postdoctoral Research Scientist in Biostatistics at Columbia University, working with Iuliana Ionita-Laza. My research focuses on statistical genetics, quantile regression, high-dimensional inference, and the integration of genomic data."
+  ],
+  "student_statement": "I am passionate about helping students build confidence in statistics, develop their research ideas, and strengthen their data analysis and programming skills.",
+  "student_followup": "I enjoy making challenging concepts accessible through clear explanations, real data, and hands-on examples. Students are welcome to connect with me about coursework, research, and learning in statistics and data science.",
+  "teaching_heading": "Teaching",
+  "teaching_intro": "My teaching combines statistical foundations with practical computing and applications in data science and genomics.",
+  "teaching_other_heading": "Additional teaching and mentorship",
+  "teaching_other": [
+    "Teaching Assistant, University of Toronto (2016–2019): Statistical Theory (STA255), Methods of Data Analysis I (STA302), Methods of Applied Statistics I (STA2101), Statistical Genetics (STA480), and Methods for Multivariate Data (STA437).",
+    "Learning Support, Data Sciences Institute, University of Toronto (2025): linear regression, classification, resampling, sampling, and visualization.",
+    "Research mentorship in high-dimensional signal detection, colocalization, and clinical risk prediction."
+  ],
+  "contact_heading": "Contact",
+  "contact_intro": "Please feel free to get in touch. When connecting on WeChat, include your name and course or research interest."
+}
