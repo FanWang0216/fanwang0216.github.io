@@ -48,8 +48,8 @@ for c in courses:
 contact=f'''<ul class="contact-list"><li><strong>Email:</strong> <a href="mailto:{e(p['email'])}">{e(p['email'])}</a></li><li><strong>WeChat:</strong> <span class="wechat-id">{e(p['wechat'])}</span><button class="copy-wechat" data-wechat="{e(p['wechat'])}" aria-label="Copy WeChat ID">Copy ID</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></li><li><strong>LinkedIn:</strong> {link(p['linkedin'],'Fan Wang')}</li></ul>'''
 student_statement_html = f'<p class="student-statement">{e(home["student_statement"])}</p>' if home.get('student_statement') else ''
 home_html=f'''<h1>{e(home['title'])}</h1>{paragraphs(home['paragraphs'])}
-<p class="research-link"><a href="research/">Research and publications →</a></p>
 {student_statement_html}<p class="student-followup">{e(home['student_followup'])}</p>
+<p class="research-link"><a href="research/">Research and publications →</a></p>
 <section id="teaching"><h2>{e(home['teaching_heading'])}</h2><p>{e(home['teaching_intro'])}</p><ul class="teaching-list">{''.join(course_html)}</ul><h3>{e(home['teaching_other_heading'])}</h3><ul class="additional-teaching">{''.join('<li>'+e(x)+'</li>' for x in home['teaching_other'])}</ul></section>
 <section id="contact"><h2>{e(home['contact_heading'])}</h2><p>{e(home['contact_intro'])}</p>{contact}</section>'''
 page(home['title'],home_html,'index.html')
