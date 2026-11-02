@@ -34,13 +34,17 @@ Google reference: https://developers.google.com/search/docs/crawling-indexing/bl
 
 ## Hosting
 
-Your current GitHub plan does not support Pages from this private repository. Do not make it public to enable Pages. Hosting requires either a supported GitHub plan or an external host that can deploy from private repositories.
+The selected host is **Cloudflare Pages (Free)**. GitHub stores the private source; Cloudflare builds and publishes it. Do not make the repository public to enable GitHub Pages.
 
-For Cloudflare Pages, connect this repository with production branch `main`, build command `python3 build.py`, and output directory `_site`. Use the free plan for this static site. After deployment, set `site_url` in `content/profile.json` to the actual public URL. GitHub remains the content editor; Cloudflare publishes each change.
+Cloudflare settings:
 
-For GitHub Pages after an eligible plan upgrade: choose **Settings → Pages → GitHub Actions**, then add repository Actions variable `GITHUB_PAGES_ENABLED` with value `true`. Run **Build personal website** from Actions. Its deployment job is disabled until that variable is set; the build and search-exclusion checks run on each push regardless.
+- Repository: `FanWang0216/fanwang0216.github.io`
+- Production branch: `main`
+- Framework preset: None
+- Build command: `python3 build.py`
+- Output directory: `_site`
 
-Intended GitHub Pages URL if that route is selected: `https://fanwang0216.github.io/`.
+After the first deployment, set `site_url` in `content/profile.json` to the actual Cloudflare URL. Cloudflare republishes commits automatically. The GitHub Actions workflow also checks that the site builds and that every HTML page has the search-exclusion directive; it does not deploy to GitHub Pages.
 
 ## Local preview
 
