@@ -21,6 +21,8 @@ Preserve JSON double quotes and commas. Copy an existing entry to add a course o
 
 The highlighted `student_statement` in `content/home.json` is optional. Remove that field or set it to an empty string to hide the paragraph; the `student_followup` paragraph will still appear.
 
+The `contact_intro` sentence and each course's `dates` are also optional. Remove them or set them to an empty string to hide them. When removing the last field in a JSON object, also remove the comma after the preceding field.
+
 The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
 
 ## Visibility and search preferences

@@ -44,14 +44,16 @@ def page(title,body,path):
 course_html=[]
 for c in courses:
     title=link(c['url'],c['title']) if c.get('url') else e(c['title'])
-    course_html.append(f'<li><span class="course-title">{title}</span><span class="course-institution">{e(c["institution"])}</span><span class="course-meta">{e(c["role"])} · {e(c["dates"])}</span></li>')
+    course_meta = ' · '.join(e(value) for value in (c['role'], c.get('dates')) if value)
+    course_html.append(f'<li><span class="course-title">{title}</span><span class="course-institution">{e(c["institution"])}</span><span class="course-meta">{course_meta}</span></li>')
 contact=f'''<ul class="contact-list"><li><strong>Email:</strong> <a href="mailto:{e(p['email'])}">{e(p['email'])}</a></li><li><strong>WeChat:</strong> <span class="wechat-id">{e(p['wechat'])}</span><button class="copy-wechat" data-wechat="{e(p['wechat'])}" aria-label="Copy WeChat ID">Copy ID</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></li><li><strong>LinkedIn:</strong> {link(p['linkedin'],'Fan Wang')}</li></ul>'''
 student_statement_html = f'<p class="student-statement">{e(home["student_statement"])}</p>' if home.get('student_statement') else ''
+contact_intro_html = f'<p>{e(home["contact_intro"])}</p>' if home.get('contact_intro') else ''
 home_html=f'''<h1>{e(home['title'])}</h1>{paragraphs(home['paragraphs'])}
 {student_statement_html}<p class="student-followup">{e(home['student_followup'])}</p>
 <p class="research-link"><a href="research/">Research and publications →</a></p>
 <section id="teaching"><h2>{e(home['teaching_heading'])}</h2><p>{e(home['teaching_intro'])}</p><ul class="teaching-list">{''.join(course_html)}</ul><h3>{e(home['teaching_other_heading'])}</h3><ul class="additional-teaching">{''.join('<li>'+e(x)+'</li>' for x in home['teaching_other'])}</ul></section>
-<section id="contact"><h2>{e(home['contact_heading'])}</h2><p>{e(home['contact_intro'])}</p>{contact}</section>'''
+<section id="contact"><h2>{e(home['contact_heading'])}</h2>{contact_intro_html}{contact}</section>'''
 page(home['title'],home_html,'index.html')
 def publication_list(kind):
     rows=[]
