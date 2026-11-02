@@ -3,42 +3,24 @@
     "title": "Genetic Data Analysis Toolbox",
     "institution": "University of Toronto · Data Sciences Institute",
     "role": "Instructor & Course Developer",
-    "dates": "2025–present",
     "url": ""
   },
   {
     "title": "Data Visualization",
     "institution": "University of Toronto · Data Sciences Institute",
     "role": "Instructor",
-    "dates": "2026–present",
     "url": ""
   },
   {
     "title": "Advanced Statistical and Computational Methods",
     "institution": "Columbia University",
-    "role": "Co-Instructor",
-    "dates": "2025",
+    "role": "Guest Lecturer",
     "url": ""
   },
   {
     "title": "Quantitative Genomics Training Workshop",
     "institution": "Columbia University",
     "role": "Lecturer",
-    "dates": "July 2025",
-    "url": ""
-  },
-  {
-    "title": "Introduction to Statistics with R",
-    "institution": "Capital Normal University",
-    "role": "Instructor · Taught in English",
-    "dates": "2022–2023",
-    "url": ""
-  },
-  {
-    "title": "Methods for Multivariate Data · STA437",
-    "institution": "University of Toronto",
-    "role": "Co-Instructor",
-    "dates": "2016",
     "url": ""
   }
 ]
