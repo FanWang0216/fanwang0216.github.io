@@ -1,5 +1,7 @@
 {
   "title": "Research",
+  "seo_title": "Research & Publications | Fan Wang, PhD",
+  "seo_description": "Research and publications by Fan Wang, PhD, in statistical genetics, clinical trials, and biomedical data science. University of Toronto and Columbia University.",
   "paragraphs": [
     "My research develops statistical and computational methods for large-scale biomedical and genomic data. I am particularly interested in understanding heterogenous genetic effects that vary across the distribution of a trait and connecting genetic associations with biological mechanisms."
   ],

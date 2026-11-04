@@ -32,14 +32,34 @@ email_links = ' or '.join(f'<a href="mailto:{e(address)}">{e(address)}</a>' for 
 photo=Path(p['photo']);assert not photo.is_absolute() and '..' not in photo.parts
 assert (ROOT/photo).is_file(), 'Profile image is missing.'
 photo_version = sha256((ROOT/photo).read_bytes()).hexdigest()[:12]
+site_url = p['site_url'].rstrip('/')
+photo_url = site_url+'/'+p['photo']+'?v='+photo_version
+person = {
+    '@type': 'Person', '@id': site_url+'/#person', 'name': p['name'],
+    'honorificSuffix': p['degree'], 'jobTitle': p['role'], 'url': site_url+'/',
+    'image': photo_url, 'description': ' '.join(home['paragraphs']),
+    'homeLocation': {'@type': 'Place', 'name': p['location']},
+    'sameAs': [p['linkedin']],
+}
 OUT.mkdir(exist_ok=True)
 shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
 base=Template((ROOT/'templates/base.html').read_text())
-def page(title,body,path):
+def page(title,body,path,metadata):
     relative='../' if path=='research/index.html' else './'
     full_url=p['site_url'].rstrip('/')+('/research/' if path=='research/index.html' else '/')
+    seo_title = metadata.get('seo_title') or title+' | '+p['name']
+    description = metadata.get('seo_description') or ' '.join(metadata['paragraphs'])
+    structured_data = {
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage' if path=='index.html' else 'CollectionPage',
+        '@id': full_url+'#webpage', 'url': full_url, 'name': seo_title,
+        'description': description,
+        ('mainEntity' if path=='index.html' else 'about'): person,
+    }
     values={**{k:e(v) for k,v in p.items() if isinstance(v,str)},**icons,
-     'root':relative,'title':e(title+' | '+p['name']),'description':e('Fan Wang, PhD — biostatistics, statistical genetics, teaching, and research.'),
+     'root':relative,'title':e(seo_title),'description':e(description),
+     'photo_url':url(photo_url),
+     'structured_data':json.dumps(structured_data,ensure_ascii=False).replace('<','\\u003c'),
      'canonical':url(full_url),'photo':relative+e(p['photo'])+'?v='+photo_version,'affiliation':'<br>'.join(e(x) for x in p['affiliation']),
      'about_current':'aria-current="page"' if path=='index.html' else '',
      'research_current':'aria-current="page"' if path=='research/index.html' else '',
@@ -58,7 +78,7 @@ home_html=f'''<h1>{e(home['title'])}</h1>{paragraphs(home['paragraphs'])}
 <p class="research-link"><a href="research/">Research and publications →</a></p>
 <section id="teaching"><h2>{e(home['teaching_heading'])}</h2><p>{e(home['teaching_intro'])}</p><ul class="teaching-list">{''.join(course_html)}</ul><h3>{e(home['teaching_other_heading'])}</h3><ul class="additional-teaching">{''.join('<li>'+e(x)+'</li>' for x in home['teaching_other'])}</ul></section>
 <section id="contact"><h2>{e(home['contact_heading'])}</h2>{contact_intro_html}{contact}</section>'''
-page(home['title'],home_html,'index.html')
+page(home['title'],home_html,'index.html',home)
 def publication_list(kind):
     rows=[]
     for paper in [x for x in pubs if x['type']==kind]:
@@ -67,10 +87,9 @@ def publication_list(kind):
     return '<ol class="publication-list">'+''.join(rows)+'</ol>'
 software='<ul class="software-list">'+''.join('<li>'+link(x['url'],x['name'])+' — '+e(x['description'])+'</li>' for x in research['software'])+'</ul>'
 research_html=f'''<h1>{e(research['title'])}</h1>{paragraphs(research['paragraphs'])}<h2>{e(research['published_heading'])}</h2><p class="publication-note">{e(research['publication_note'])}</p>{publication_list('published')}<h2>{e(research['preprints_heading'])}</h2>{publication_list('preprint')}<h2>{e(research['software_heading'])}</h2>{software}'''
-page(research['title'],research_html,'research/index.html')
+page(research['title'],research_html,'research/index.html',research)
 (OUT/'.nojekyll').write_text('')
 # The public website permits crawling and indexing; the source repository stays private.
-site_url = p['site_url'].rstrip('/')
 (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {site_url}/sitemap.xml\n', encoding='utf-8')
 sitemap_urls = [site_url+'/', site_url+'/research/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{url(href)}</loc></url>\n' for href in sitemap_urls)+'</urlset>\n', encoding='utf-8')

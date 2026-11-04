@@ -25,6 +25,8 @@ The `contact_intro` sentence and each course's `dates` are also optional. Remove
 
 Edit `email` and `secondary_email` in `content/profile.json` to update your two contact addresses. Both appear as clickable email links separated by "or". The `secondary_email` field is optional; remove it or leave it empty to show only the primary address.
 
+The optional `seo_title` and `seo_description` fields in `content/home.json` and `content/research.json` control search titles, descriptions, and link previews. Keep them accurate when your background changes. Structured profile information is generated from the current profile and introduction.
+
 The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
 
 ## Visibility and search preferences
