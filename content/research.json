@@ -1,8 +1,7 @@
 {
   "title": "Research",
   "paragraphs": [
-    "My research develops statistical methods for complex biomedical and genomic data, with a focus on quantile regression, high-dimensional signal detection, colocalization, and uncertainty quantification.",
-    "I am particularly interested in understanding genetic effects that vary across the distribution of a trait and connecting genetic associations with biological mechanisms."
+    "My research develops statistical and computational methods for large-scale biomedical and genomic data. I am particularly interested in understanding heterogenous genetic effects that vary across the distribution of a trait and connecting genetic associations with biological mechanisms."
   ],
   "published_heading": "Publications",
   "publication_note": "* denotes equal contribution.",
