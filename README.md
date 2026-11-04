@@ -27,6 +27,8 @@ Edit `email` and `secondary_email` in `content/profile.json` to update your two 
 
 The optional `seo_title` and `seo_description` fields in `content/home.json` and `content/research.json` control search titles, descriptions, and link previews. Keep them accurate when your background changes. Structured profile information is generated from the current profile and introduction.
 
+Keep `google_site_verification` in `content/profile.json`: Google uses this public verification code to maintain your Search Console ownership. It is not an email password or API key.
+
 The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
 
 ## Visibility and search preferences

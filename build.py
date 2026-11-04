@@ -59,6 +59,7 @@ def page(title,body,path,metadata):
     values={**{k:e(v) for k,v in p.items() if isinstance(v,str)},**icons,
      'root':relative,'title':e(seo_title),'description':e(description),
      'photo_url':url(photo_url),
+     'google_verification':f'<meta name="google-site-verification" content="{e(p["google_site_verification"])}">' if path=='index.html' and p.get('google_site_verification') else '',
      'structured_data':json.dumps(structured_data,ensure_ascii=False).replace('<','\\u003c'),
      'canonical':url(full_url),'photo':relative+e(p['photo'])+'?v='+photo_version,'affiliation':'<br>'.join(e(x) for x in p['affiliation']),
      'about_current':'aria-current="page"' if path=='index.html' else '',
