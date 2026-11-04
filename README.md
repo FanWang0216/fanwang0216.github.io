@@ -1,10 +1,10 @@
 # Fan Wang — Personal website
 
-Clean academic website with teaching on the homepage, a separate Research page, and email, WeChat, and LinkedIn contact details. The repository is private. Keep it private.
+Clean academic website with teaching on the homepage, a separate Research page, and email, WeChat, and LinkedIn contact details. The repository and website are public, as requested by the owner.
 
 ## Edit your content on GitHub
 
-Open a file below, click the pencil, edit, and choose **Commit changes**. After hosting is connected, successful builds publish your changes automatically.
+Open a file below, click the pencil, edit, and choose **Commit changes**. Successful GitHub Actions builds publish your changes automatically.
 
 | What to change | File |
 | --- | --- |
@@ -29,12 +29,12 @@ The optional `seo_title` and `seo_description` fields in `content/home.json` and
 
 Keep `google_site_verification` in `content/profile.json`: Google uses this public verification code to maintain your Search Console ownership. It is not an email password or API key.
 
-The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
+Bookmark this repository to edit: https://github.com/FanWang0216/fanwang0216.github.io. Repository files, commit history, and published contact details are publicly visible. Do not commit passwords, tokens, CV source documents, or other private files.
 
 ## Visibility and search preferences
 
-- Repository: private; its files are not visible to people browsing your public GitHub profile.
-- Website: publicly accessible at https://fan-wang-statistics.pages.dev/.
+- Repository: public and visible on the owner's GitHub profile.
+- Website: publicly accessible at https://fanwang0216.github.io/.
 - Search indexing is enabled at the owner's request. Every HTML page and the `X-Robots-Tag` response header allow `index, follow`.
 - `robots.txt` allows crawling, including images, and advertises the website's sitemap.
 - `sitemap.xml` lists the homepage and Research page using their official website addresses.
@@ -44,21 +44,22 @@ Google reference: https://developers.google.com/search/docs/crawling-indexing/si
 
 ## Hosting
 
-The selected host is **Cloudflare Pages (Free)**. GitHub stores the private source; Cloudflare builds and publishes it. Do not make the repository public to enable GitHub Pages.
+The primary host is **GitHub Pages**.
 
-Cloudflare settings:
+- Repository: `FanWang0216/fanwang0216.github.io` (public).
+- Production branch: `main`.
+- Repository Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+- Workflow: `.github/workflows/pages.yml`.
+- Build command: `python3 build.py`.
+- Published output: `_site`.
 
-- Repository: `FanWang0216/fanwang0216.github.io`
-- Production branch: `main`
-- Framework preset: None
-- Build command: `python3 build.py`
-- Output directory: `_site`
+Website: https://fanwang0216.github.io/
 
-Website: https://fan-wang-statistics.pages.dev/
+Research: https://fanwang0216.github.io/research/
 
-Research: https://fan-wang-statistics.pages.dev/research/
+Every push to `main` builds, checks the public search settings, and deploys the site. A green workflow run confirms deployment; invalid JSON prevents publication. The content files and editing process are unchanged. If you later change the domain, update `site_url` in `content/profile.json`.
 
-Cloudflare republishes commits automatically. If you later change the domain, update `site_url` in `content/profile.json`. The GitHub Actions workflow also checks that the site builds and that the public search settings and sitemap are valid; it does not deploy to GitHub Pages.
+The existing Cloudflare Pages project remains connected during migration. Once the GitHub Pages address is verified live, the old address can redirect visitors to it.
 
 ## Local preview
 

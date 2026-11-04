@@ -90,7 +90,7 @@ software='<ul class="software-list">'+''.join('<li>'+link(x['url'],x['name'])+' 
 research_html=f'''<h1>{e(research['title'])}</h1>{paragraphs(research['paragraphs'])}<h2>{e(research['published_heading'])}</h2><p class="publication-note">{e(research['publication_note'])}</p>{publication_list('published')}<h2>{e(research['preprints_heading'])}</h2>{publication_list('preprint')}<h2>{e(research['software_heading'])}</h2>{software}'''
 page(research['title'],research_html,'research/index.html',research)
 (OUT/'.nojekyll').write_text('')
-# The public website permits crawling and indexing; the source repository stays private.
+# The public website permits crawling and indexing.
 (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {site_url}/sitemap.xml\n', encoding='utf-8')
 sitemap_urls = [site_url+'/', site_url+'/research/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{url(href)}</loc></url>\n' for href in sitemap_urls)+'</urlset>\n', encoding='utf-8')
