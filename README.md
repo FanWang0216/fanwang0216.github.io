@@ -71,6 +71,6 @@ Open `http://localhost:8000`. Re-run `build.py` after editing. `_site/` is gener
 
 Employment follows the supplied LinkedIn screenshot. Teaching and publications follow the supplied CVs and project summaries. Research contains 10 published articles and one preprint, with preprints separated from published papers. SimpleSum2 uses its verified 2022 publication year and corrected coauthor initials. The PRS preprint uses the public title and DOI `10.1101/2025.10.13.682102`.
 
-The photograph is Fan Wang's existing GitHub avatar. Original CVs and personal documents are not included in this repository.
+The photograph is the outdoor portrait supplied by Fan Wang, resized for web use. Replacing `assets/images/profile.jpg` automatically changes the image's version in the page URL so browsers load the updated photograph. Original CVs and other personal documents are not included in this repository.
 
 Layout reference: https://wangguan27.github.io/

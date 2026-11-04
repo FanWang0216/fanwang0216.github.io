@@ -5,6 +5,7 @@ from html import escape
 from urllib.parse import urlsplit
 from string import Template
 from datetime import datetime, timezone
+from hashlib import sha256
 import json, re, shutil
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / '_site'
@@ -30,6 +31,7 @@ assert all(re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+', address) for address in ema
 email_links = ' or '.join(f'<a href="mailto:{e(address)}">{e(address)}</a>' for address in emails)
 photo=Path(p['photo']);assert not photo.is_absolute() and '..' not in photo.parts
 assert (ROOT/photo).is_file(), 'Profile image is missing.'
+photo_version = sha256((ROOT/photo).read_bytes()).hexdigest()[:12]
 OUT.mkdir(exist_ok=True)
 shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
 base=Template((ROOT/'templates/base.html').read_text())
@@ -38,7 +40,7 @@ def page(title,body,path):
     full_url=p['site_url'].rstrip('/')+('/research/' if path=='research/index.html' else '/')
     values={**{k:e(v) for k,v in p.items() if isinstance(v,str)},**icons,
      'root':relative,'title':e(title+' | '+p['name']),'description':e('Fan Wang, PhD — biostatistics, statistical genetics, teaching, and research.'),
-     'canonical':url(full_url),'photo':relative+e(p['photo']),'affiliation':'<br>'.join(e(x) for x in p['affiliation']),
+     'canonical':url(full_url),'photo':relative+e(p['photo'])+'?v='+photo_version,'affiliation':'<br>'.join(e(x) for x in p['affiliation']),
      'about_current':'aria-current="page"' if path=='index.html' else '',
      'research_current':'aria-current="page"' if path=='research/index.html' else '',
      'body':body,'email_links':email_links,'year':str(datetime.now(timezone.utc).year)}
