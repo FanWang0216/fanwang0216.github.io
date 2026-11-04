@@ -25,7 +25,9 @@ icons = {
 p=load('profile');home=load('home');research=load('research');courses=load('teaching');pubs=load('publications')
 assert len({x['url'] for x in pubs})==len(pubs), 'Duplicate publication links.'
 assert all(x['type'] in ('published','preprint') for x in pubs)
-assert re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+',p['email']), 'Invalid email.'
+emails = [p['email']] + ([p['secondary_email']] if p.get('secondary_email') else [])
+assert all(re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+', address) for address in emails), 'Invalid email.'
+email_links = ' or '.join(f'<a href="mailto:{e(address)}">{e(address)}</a>' for address in emails)
 photo=Path(p['photo']);assert not photo.is_absolute() and '..' not in photo.parts
 assert (ROOT/photo).is_file(), 'Profile image is missing.'
 OUT.mkdir(exist_ok=True)
@@ -39,14 +41,14 @@ def page(title,body,path):
      'canonical':url(full_url),'photo':relative+e(p['photo']),'affiliation':'<br>'.join(e(x) for x in p['affiliation']),
      'about_current':'aria-current="page"' if path=='index.html' else '',
      'research_current':'aria-current="page"' if path=='research/index.html' else '',
-     'body':body,'year':str(datetime.now(timezone.utc).year)}
+     'body':body,'email_links':email_links,'year':str(datetime.now(timezone.utc).year)}
     dest=OUT/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(base.substitute(values),encoding='utf-8')
 course_html=[]
 for c in courses:
     title=link(c['url'],c['title']) if c.get('url') else e(c['title'])
     course_meta = ' · '.join(e(value) for value in (c['role'], c.get('dates')) if value)
     course_html.append(f'<li><span class="course-title">{title}</span><span class="course-institution">{e(c["institution"])}</span><span class="course-meta">{course_meta}</span></li>')
-contact=f'''<ul class="contact-list"><li><strong>Email:</strong> <a href="mailto:{e(p['email'])}">{e(p['email'])}</a></li><li><strong>WeChat:</strong> <span class="wechat-id">{e(p['wechat'])}</span><button class="copy-wechat" data-wechat="{e(p['wechat'])}" aria-label="Copy WeChat ID">Copy ID</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></li><li><strong>LinkedIn:</strong> {link(p['linkedin'],'Fan Wang')}</li></ul>'''
+contact=f'''<ul class="contact-list"><li><strong>Email:</strong> {email_links}</li><li><strong>WeChat:</strong> <span class="wechat-id">{e(p['wechat'])}</span><button class="copy-wechat" data-wechat="{e(p['wechat'])}" aria-label="Copy WeChat ID">Copy ID</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></li><li><strong>LinkedIn:</strong> {link(p['linkedin'],'Fan Wang')}</li></ul>'''
 student_statement_html = f'<p class="student-statement">{e(home["student_statement"])}</p>' if home.get('student_statement') else ''
 contact_intro_html = f'<p>{e(home["contact_intro"])}</p>' if home.get('contact_intro') else ''
 home_html=f'''<h1>{e(home['title'])}</h1>{paragraphs(home['paragraphs'])}

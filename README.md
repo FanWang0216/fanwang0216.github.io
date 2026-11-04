@@ -23,6 +23,8 @@ The highlighted `student_statement` in `content/home.json` is optional. Remove t
 
 The `contact_intro` sentence and each course's `dates` are also optional. Remove them or set them to an empty string to hide them. When removing the last field in a JSON object, also remove the comma after the preceding field.
 
+Edit `email` and `secondary_email` in `content/profile.json` to update your two contact addresses. Both appear as clickable email links separated by "or". The `secondary_email` field is optional; remove it or leave it empty to show only the primary address.
+
 The public website has no repository or editing link. Bookmark this private repository to edit. Research software links still point to the relevant public scientific tools.
 
 ## Visibility and search preferences

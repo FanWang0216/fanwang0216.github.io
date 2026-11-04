@@ -5,3 +5,8 @@
 @media(max-width:380px){.masthead nav{gap:18px;padding:0 16px}.masthead .site-name{width:100%;padding-bottom:0}.masthead a{padding-top:8px}.masthead nav{padding-bottom:6px}.page-layout{padding:0 20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:720px){.profile-links li:nth-child(3){grid-column:1/-1;justify-self:center}}
+.profile-links .profile-email{max-width:100%}
+.profile-links .profile-email>span{align-items:flex-start}
+.profile-email .email-addresses{min-width:0}
+.email-addresses a{white-space:nowrap;color:inherit;text-decoration:none}
+.email-addresses a:hover{color:var(--link);text-decoration:underline}
