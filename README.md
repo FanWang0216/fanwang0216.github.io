@@ -35,7 +35,7 @@ Bookmark this repository to edit: https://github.com/FanWang0216/fanwang0216.git
 
 - Repository: public and visible on the owner's GitHub profile.
 - Website: publicly accessible at https://fanwang0216.github.io/.
-- Search indexing is enabled at the owner's request. Every HTML page and the `X-Robots-Tag` response header allow `index, follow`.
+- Search indexing is enabled at the owner's request. Every HTML page allows `index, follow`. The legacy Cloudflare host also sets the corresponding response header.
 - `robots.txt` allows crawling, including images, and advertises the website's sitemap.
 - `sitemap.xml` lists the homepage and Research page using their official website addresses.
 - These settings make the website eligible for search indexing. Search engines decide whether and when to crawl, index, and display it; appearing in search results is not immediate or guaranteed.
@@ -59,7 +59,7 @@ Research: https://fanwang0216.github.io/research/
 
 Every push to `main` builds, checks the public search settings, and deploys the site. A green workflow run confirms deployment; invalid JSON prevents publication. The content files and editing process are unchanged. If you later change the domain, update `site_url` in `content/profile.json`.
 
-The existing Cloudflare Pages project remains connected during migration. Once the GitHub Pages address is verified live, the old address can redirect visitors to it.
+The existing Cloudflare Pages project remains connected and uses the generated `_redirects` file to permanently redirect the old address (`https://fan-wang-statistics.pages.dev/`) to the matching path on GitHub Pages. GitHub Pages ignores this routing file. Keep the Cloudflare project connected so old shared links continue to work.
 
 ## Local preview
 

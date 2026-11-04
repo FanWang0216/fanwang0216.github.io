@@ -95,4 +95,9 @@ page(research['title'],research_html,'research/index.html',research)
 sitemap_urls = [site_url+'/', site_url+'/research/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{url(href)}</loc></url>\n' for href in sitemap_urls)+'</urlset>\n', encoding='utf-8')
 (OUT/'_headers').write_text('/*\n  X-Robots-Tag: index, follow\n')
+# Cloudflare uses this routing file; GitHub Pages serves the built HTML normally.
+if site_url != 'https://fan-wang-statistics.pages.dev':
+    (OUT/'_redirects').write_text(f'/* {site_url}/:splat 301\n')
+else:
+    (OUT/'_redirects').unlink(missing_ok=True)
 print(f'Built homepage and research page: {len(courses)} courses, {len(pubs)} papers.')
